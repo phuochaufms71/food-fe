@@ -10,12 +10,12 @@ import { images } from "../../../components/images/index.js";
 const AdminCreateFood = () => {
   const cx = classNames.bind(styles);
   const dispatch = useDispatch();
-  const [image, setImage] = useState(false);
+  const [img, setImg] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     category: '',
     price: '',
-    image: '',
+    image: img,
     rate: '',
     description: ''
   })
@@ -24,15 +24,16 @@ const AdminCreateFood = () => {
     const accessToken = localStorage.getItem(ACCESS_TOKEN);
     await dispatch(createFood({
       accessToken,
-      newFood: {...formData, image: e.target.files[0]}
+      newFood: formData
     }))
-    setImage(false)
+    setImg(false)
     setFormData({
       name: '',
       category: '',
       price: '',
       rate: '',
-      description: ''
+      description: '',
+      image: img
     })
   }
 
@@ -57,9 +58,9 @@ const AdminCreateFood = () => {
           <div className={cx("create-food__form-block")}>
           <div className={cx("create-food__form-group")}>
               <label className={cx("create-food__label")}>Image</label>
-              <input id="imgUpload" className={cx("create-food__input")} type="file" onChange={(e) => setImage(e.target.files[0])} accept="image/*" hidden/>
+              <input id="imgUpload" className={cx("create-food__input")} type="file" onChange={(e) => setImg(e.target.files[0])} accept="image/*" hidden/>
               <label htmlFor="imgUpload">
-                <img className={cx("create-food__upload")} src={image ? URL.createObjectURL(image) : images.upload_img} alt="" />
+                <img className={cx("create-food__upload")} src={img ? URL.createObjectURL(img) : images.upload_img} alt="" />
               </label>
             </div>
             <div className={cx("create-food__form-group")}>
