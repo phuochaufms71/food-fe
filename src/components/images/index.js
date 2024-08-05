@@ -23,6 +23,7 @@ import food_icon from "./food_admin.png";
 import blog_icon from "./blog.png";
 import add_icon from "./add.png";
 import checklist_icon from "./checklist.png";
+import upload_img from "./upload_area.png";
 
 export const images = {
     logo_food,
@@ -49,5 +50,6 @@ export const images = {
     food_icon,
     blog_icon,
     add_icon,
-    checklist_icon
+    checklist_icon,
+    upload_img
 }

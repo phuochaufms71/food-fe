@@ -5,13 +5,14 @@ import { useState } from "react";
 import { ACCESS_TOKEN } from "../../../constants";
 import { useDispatch } from "react-redux";
 import { createFood } from "../../../redux/food/foodSlice";
+import { images } from "../../../components/images/index.js";
 
 const AdminCreateFood = () => {
   const cx = classNames.bind(styles);
   const dispatch = useDispatch();
+  const [image, setImage] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
-    image: '',
     category: '',
     price: '',
     rate: '',
@@ -26,13 +27,12 @@ const AdminCreateFood = () => {
     }))
     setFormData({
       name: '',
-      image: '',
       category: '',
       price: '',
       rate: '',
       description: ''
-    }
-    )
+    })
+    setImage(false)
   }
 
   return (
@@ -56,7 +56,8 @@ const AdminCreateFood = () => {
           <div className={cx("create-food__form-block")}>
           <div className={cx("create-food__form-group")}>
               <label className={cx("create-food__label")}>Image</label>
-              <input className={cx("create-food__input")} type="file" value={formData.image} onChange={(e) => setFormData({...formData, image: e.target.files[0]})}/>
+              <input className={cx("create-food__input")} type="file" onChange={(e) => setImage(e.target.files[0])} accept="image/*" hidden/>
+              <img src={image ? URL.createObjectURL(image) : images.upload_img} alt="" />
             </div>
             <div className={cx("create-food__form-group")}>
               <label className={cx("create-food__label")} htmlFor="rateFood">Rate</label>
