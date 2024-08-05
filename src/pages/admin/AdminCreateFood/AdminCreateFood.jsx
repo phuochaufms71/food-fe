@@ -15,6 +15,7 @@ const AdminCreateFood = () => {
     name: '',
     category: '',
     price: '',
+    image: image,
     rate: '',
     description: ''
   })
@@ -25,6 +26,7 @@ const AdminCreateFood = () => {
       accessToken,
       newFood: formData
     }))
+    setImage(false)
     setFormData({
       name: '',
       category: '',
@@ -32,7 +34,6 @@ const AdminCreateFood = () => {
       rate: '',
       description: ''
     })
-    setImage(false)
   }
 
   return (
@@ -56,8 +57,10 @@ const AdminCreateFood = () => {
           <div className={cx("create-food__form-block")}>
           <div className={cx("create-food__form-group")}>
               <label className={cx("create-food__label")}>Image</label>
-              <input className={cx("create-food__input")} type="file" onChange={(e) => setImage(e.target.files[0])} accept="image/*" hidden/>
-              <img src={image ? URL.createObjectURL(image) : images.upload_img} alt="" />
+              <input id="imgUpload" className={cx("create-food__input")} type="file" onChange={(e) => setImage(e.target.files[0])} accept="image/*" hidden/>
+              <label htmlFor="imgUpload">
+                <img className={cx("create-food__upload")} src={image ? URL.createObjectURL(image) : images.upload_img} alt="" />
+              </label>
             </div>
             <div className={cx("create-food__form-group")}>
               <label className={cx("create-food__label")} htmlFor="rateFood">Rate</label>
