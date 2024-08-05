@@ -1,0 +1,77 @@
+@use "../scss/abtracts";
+@import "../Common/Common.module.scss";
+
+::placeholder {
+    color: $fourary-color;
+}
+
+.admin-header {
+    padding: 20px 0;
+    border: 1px solid $border-color;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        display: block;
+        border-radius: 50%;
+    }
+
+    &__search {
+        display: flex;
+        align-items: center;
+        border: 1px solid $fourary-color;
+        border-radius: 99px;
+        padding-left: 20px;
+    }
+
+    &__input {
+        padding: 10px 0;
+        border: none;
+        outline: none;
+        color: $fourary-color;
+    }
+
+    &__icon {
+        background: $fourary-color;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 0 99px 99px 0;
+        cursor: pointer;
+
+        i {
+            font-size: 2rem;
+        }
+    }
+
+    &__navbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &-link {
+            padding: 10px 20px;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #333;
+        }
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        i {
+            font-size: 1.8rem;
+            color: $fourary-color;
+            cursor: pointer;
+        }
+    }
+
+}
