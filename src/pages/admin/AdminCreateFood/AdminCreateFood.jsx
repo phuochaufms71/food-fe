@@ -24,7 +24,7 @@ const AdminCreateFood = () => {
     const accessToken = localStorage.getItem(ACCESS_TOKEN);
     await dispatch(createFood({
       accessToken,
-      newFood: formData
+      newFood: {...formData, image}
     }))
     setImage(false)
     setFormData({
