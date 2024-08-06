@@ -5,16 +5,15 @@ import { useState } from "react";
 import { ACCESS_TOKEN } from "../../../constants";
 import { useDispatch } from "react-redux";
 import { createFood } from "../../../redux/food/foodSlice.js";
-import { images } from "../../../components/images/index.js";
 
 const AdminCreateFood = () => {
   const cx = classNames.bind(styles);
   const dispatch = useDispatch();
-  const [image, setImage] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     category: '',
     price: '',
+    image: '',
     rate: '',
     description: ''
   })
@@ -24,16 +23,16 @@ const AdminCreateFood = () => {
     const accessToken = localStorage.getItem(ACCESS_TOKEN);
     await dispatch(createFood({
       accessToken,
-      newFood: {formData, image}
+      newFood: formData
     }))
     setFormData({
       name: '',
       category: '',
       price: '',
+      image: '',
       rate: '',
       description: '',
     })
-    setImage(false)
   }
 
   return (
@@ -57,10 +56,7 @@ const AdminCreateFood = () => {
           <div className={cx("create-food__form-block")}>
           <div className={cx("create-food__form-group")}>
               <label className={cx("create-food__label")}>Image</label>
-              <input id="image" className={cx("create-food__input")} type="file" onChange={(e) => setImage(e.target.files[0])} hidden/>
-              <label htmlFor="image">
-                <img className={cx("create-food__upload")} src={image ? URL.createObjectURL(image) : images.upload_img} alt="" />
-              </label>
+              <input id="image" className={cx("create-food__input")} type="text" value={formData.image} onChange={(e) => setFormData({...formData, image: e.target.value})} hidden/>
             </div>
             <div className={cx("create-food__form-group")}>
               <label className={cx("create-food__label")} htmlFor="rateFood">Rate</label>
