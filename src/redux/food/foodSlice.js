@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { notification } from "antd";
 import { NOTIFICATION_TYPES } from "../../constants";
 import createApi from "../../api";
@@ -43,4 +43,33 @@ export const createFood = createAsyncThunk('foods/createFood', async ({accessTok
         })
     }
 })
+
+const initialState = {
+    foods: [],
+    food: {}
+}
+
+const foodSlice = createSlice({
+    name: 'food',
+    initialState,
+    reducers: {
+        removeSelectedMovie: (state) => {
+            state.food = {}
+        }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(getFoods.fulfilled, (state, action) => {
+            state.foods = action.payload
+        })
+        builder.addCase(getFoodDetail.fulfilled, (state, action) => {
+            state.food = action.payload
+        })
+    }
+})
+
+// export const { removeSelectedMovie } = foodSlice.actions;
+export const getFoodsFromStore = state => state.food.foods;
+export const getFoodFromStore = state => state.food.food
+
+export default foodSlice.reducer;
 
