@@ -26,7 +26,6 @@ const AdminCreateFood = () => {
       accessToken,
       newFood: formData
     }))
-    setImg(false)
     setFormData({
       name: '',
       category: '',
@@ -35,6 +34,7 @@ const AdminCreateFood = () => {
       description: '',
       image: img
     })
+    setImg(false)
   }
 
   return (
