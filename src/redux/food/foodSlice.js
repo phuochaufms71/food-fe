@@ -33,7 +33,7 @@ export const getFoodDetail = createAsyncThunk('foods/getFoodDetail', async ({acc
 
 export const createFood = createAsyncThunk('foods/createFood', async ({accessToken, newFood}) => {
     try {
-        await createApi(accessToken).post('/foods/admin-food/create', newFood)
+        await createApi(accessToken).post('/foods/admin-food/create', {...newFood})
         notification[NOTIFICATION_TYPES.success]({
             message: "Create new food successfully"
         })
@@ -43,3 +43,4 @@ export const createFood = createAsyncThunk('foods/createFood', async ({accessTok
         })
     }
 })
+
