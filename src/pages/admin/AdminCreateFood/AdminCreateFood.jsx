@@ -58,8 +58,8 @@ const AdminCreateFood = () => {
           <div className={cx("create-food__form-block")}>
           <div className={cx("create-food__form-group")}>
               <label className={cx("create-food__label")}>Image</label>
-              <input id="imgUpload" className={cx("create-food__input")} type="file" onChange={(e) => setImg(e.target.files[0])} accept="image/*" hidden/>
-              <label htmlFor="imgUpload">
+              <input id="image" className={cx("create-food__input")} type="file" onChange={(e) => setImg(e.target.files[0])} accept="image/*" hidden/>
+              <label htmlFor="image">
                 <img className={cx("create-food__upload")} src={img ? URL.createObjectURL(img) : images.upload_img} alt="" />
               </label>
             </div>
