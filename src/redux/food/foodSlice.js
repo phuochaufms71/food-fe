@@ -50,7 +50,7 @@ const initialState = {
 }
 
 const foodSlice = createSlice({
-    name: 'food',
+    name: 'foods',
     initialState,
     reducers: {
         removeSelectedMovie: (state) => {
