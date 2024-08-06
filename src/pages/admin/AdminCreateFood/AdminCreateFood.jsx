@@ -55,8 +55,8 @@ const AdminCreateFood = () => {
           </div>
           <div className={cx("create-food__form-block")}>
           <div className={cx("create-food__form-group")}>
-              <label className={cx("create-food__label")}>Image</label>
-              <input id="image" className={cx("create-food__input")} type="text" value={formData.image} onChange={(e) => setFormData({...formData, image: e.target.value})} hidden/>
+              <label className={cx("create-food__label")}>Link image</label>
+              <input id="image" className={cx("create-food__input")} type="text" value={formData.image} onChange={(e) => setFormData({...formData, image: e.target.value})} />
             </div>
             <div className={cx("create-food__form-group")}>
               <label className={cx("create-food__label")} htmlFor="rateFood">Rate</label>
