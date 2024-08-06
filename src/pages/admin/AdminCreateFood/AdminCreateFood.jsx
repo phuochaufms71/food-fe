@@ -4,7 +4,7 @@ import styles from "./AdminCreateFood.module.scss";
 import { useState } from "react";
 import { ACCESS_TOKEN } from "../../../constants";
 import { useDispatch } from "react-redux";
-import { createFood } from "../../../redux/food/foodSlice";
+import { createFood } from "../../../redux/food/foodSlice.js";
 import { images } from "../../../components/images/index.js";
 
 const AdminCreateFood = () => {
@@ -18,6 +18,7 @@ const AdminCreateFood = () => {
     rate: '',
     description: ''
   })
+
   const handleSubmitFormCreateFood = async (e) => {
     e.preventDefault();
     const accessToken = localStorage.getItem(ACCESS_TOKEN);
@@ -76,7 +77,7 @@ const AdminCreateFood = () => {
             <p className={cx("create-food__note")}><span>Note:</span> Fill in the detailed name of your product. Then click the create button</p>
             <div className={cx("create-food__wrap-btn")}>
               <button className={cx("create-food__btn--cancel")}>Cancel</button>
-              <button onClick={handleSubmitFormCreateFood} className={cx("create-food__btn--create")}>Create</button>
+              <button type="submit" className={cx("create-food__btn--create")}>Create</button>
             </div>
           </div>
         </form>
