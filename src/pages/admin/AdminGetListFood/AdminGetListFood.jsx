@@ -56,21 +56,21 @@ const AdminGetListFood = () => {
               </tr>
             </thead>
             {
-              foods.map((food, index) => {
+              foods?.map((food, index) => {
                 return (
                   <tbody key={index}>
                   <tr className={cx("get_list_food__th")}>
                     <td className={cx("get_list_food__td")}>
-                      <img className={cx("get_list_food__img")} src={food.image} alt="" />
+                      <img className={cx("get_list_food__img")} src={food?.image} alt="" />
                     </td>
-                    <td className={cx("get_list_food__td")}>{food.name}</td>
-                    <td className={cx("get_list_food__td")}>{food.category}</td>
-                    <td className={cx("get_list_food__td")}>{food.price}</td>
-                    <td className={cx("get_list_food__td")}>{food.rate}</td>
+                    <td className={cx("get_list_food__td")}>{food?.name}</td>
+                    <td className={cx("get_list_food__td")}>{food?.category}</td>
+                    <td className={cx("get_list_food__td")}>{food?.price}</td>
+                    <td className={cx("get_list_food__td")}>{food?.rate}</td>
                     <td className={cx("get_list_food__td")}>
                       <div className={cx("get_list_food__wrap")}>
-                        <img onClick={() => {setId(food._id); setShowAction(true)}} className={cx("get_list_food__more")} src={images.three_dots_icon} alt="" />
-                        {id === food._id && showAction && <div className={cx("get_list_food__action")}>
+                        <img onClick={() => {setId(food?._id); setShowAction(true)}} className={cx("get_list_food__more")} src={images.three_dots_icon} alt="" />
+                        {id === food?._id && showAction && <div className={cx("get_list_food__action")}>
                           <Link to="/admin-food/update" className={cx("get_list_food__item")}>
                             <img className={cx("get_list_food__item-img")} src={images.edit_icon} alt="edit icon" />
                             Update
