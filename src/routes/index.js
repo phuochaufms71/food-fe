@@ -12,6 +12,8 @@ import AdminGetListFood from "../pages/admin/AdminGetListFood/AdminGetListFood";
 import AdminCreateFood from "../pages/admin/AdminCreateFood/AdminCreateFood";
 import AdminGetListBlog from "../pages/admin/AdminGetListBlog/AdminGetListBlog";
 import AdminCreateBlog from "../pages/admin/AdminCreateBlog/AdminCreateBlog";
+import Admin from "../pages/admin/Admin";
+import Analytics from "../pages/admin/Analytics/Analytics";
 
 export const routePublic = [
     { path: "/", component: Home },
@@ -28,6 +30,8 @@ export const routeAuthorization = [
 ];
 
 export const routeAdmin = [
+    { path: "/", component: Admin},
+    { path: "/analytics", component: Analytics},
     { path: "/admin-food/lists", component: AdminGetListFood },
     { path: "/admin-food/create", component: AdminCreateFood },
     { path: "/admin-blog/lists", component: AdminGetListBlog },

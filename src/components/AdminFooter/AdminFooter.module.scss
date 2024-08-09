@@ -11,6 +11,18 @@
         font-size: 1.8rem;
         color: #9a9a9a;
 
+        @include abtracts.breakpoint(lg) {
+            font-size: 1.7rem;
+        }
+
+        @include abtracts.breakpoint(md) {
+            font-size: 1.6rem;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            font-size: 1.5rem;
+        }
+
         span {
             color: $secondary;
             font-weight: 500;

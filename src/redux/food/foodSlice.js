@@ -5,10 +5,7 @@ import createApi from "../../api";
 
 export const getFoods = createAsyncThunk('foods/getFoods', async (accessToken) => {
     try {
-        const { data } = await createApi(accessToken).get('/foods');
-        notification[NOTIFICATION_TYPES.success]({
-            message: "Get foods successfully"
-        })
+        const { data } = await createApi(accessToken).get('/foods/admin-food/lists');
         return data.data
     } catch (error) {
         notification[NOTIFICATION_TYPES.error]({
@@ -20,9 +17,6 @@ export const getFoods = createAsyncThunk('foods/getFoods', async (accessToken) =
 export const getFoodDetail = createAsyncThunk('foods/getFoodDetail', async ({accessToken, id}) => {
     try {
         const { data } = await createApi(accessToken).get(`/foods/${id}`)
-        notification[NOTIFICATION_TYPES.success]({
-            message: "Get food detail successfully"
-        })
         return data.data
     } catch (error) {
         notification[NOTIFICATION_TYPES.error]({
@@ -36,6 +30,19 @@ export const createFood = createAsyncThunk('foods/createFood', async ({accessTok
         await createApi(accessToken).post('/foods/admin-food/create', {...newFood})
         notification[NOTIFICATION_TYPES.success]({
             message: "Create new food successfully"
+        })
+    } catch (error) {
+        notification[NOTIFICATION_TYPES.error]({
+            message: error.response.data.message
+        })
+    }
+})
+
+export const deleteFood = createAsyncThunk('foods/deleteFood', async ({accessToken, id}) => {
+    try {
+        await createApi(accessToken).delete(`/foods/admin-food/lists/${id}`)
+        notification[NOTIFICATION_TYPES.success]({
+            message: "Delete food successfully"
         })
     } catch (error) {
         notification[NOTIFICATION_TYPES.error]({

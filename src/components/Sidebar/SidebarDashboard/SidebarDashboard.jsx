@@ -14,7 +14,7 @@ const SidebarDashboard = () => {
                 <div className={cx("sidebar__content")}>
                     <div className={cx("sidebar__wrap-img")}>
                         <img className={cx("sidebar__img")} src={images.food_icon} alt="icon food" />
-                        <h3 className={cx("sidebar__sub-title")}>Food</h3>
+                        <h3 className={cx("sidebar__title")}>Food</h3>
                     </div>
                     <div className={cx("sidebar__action")}>
                         <Link onClick={() => setActive("food-lists")} to="/admin-food/lists" className={`${active === "food-lists" ? styles.active : ""} ${styles.sidebar__actionLink}`}>
@@ -31,7 +31,7 @@ const SidebarDashboard = () => {
                 <div className={cx("sidebar__content")}>
                     <div className={cx("sidebar__wrap-img")}>
                         <img className={cx("sidebar__img")} src={images.blog_icon} alt="icon blog" />
-                        <h3 className={cx("sidebar__sub-title")}>Blog</h3>
+                        <h3 className={cx("sidebar__title")}>Blog</h3>
                     </div>
                     <div className={cx("sidebar__action")}>
                         <div className={cx("sidebar__action")}>
