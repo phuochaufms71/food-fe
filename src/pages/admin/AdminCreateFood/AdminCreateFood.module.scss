@@ -94,11 +94,11 @@
     }
 
     &__btn--cancel {
-        border: none;
+        border: 1px solid #959595;
         outline: none;
         padding: 10px;
-        background: $secondary;
-        color: #fff;
+        background: transparent;
+        color: #959595;
         border-radius: 4px;
         min-width: 80px;
         cursor: pointer;

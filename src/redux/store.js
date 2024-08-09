@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import authReducer from './auth/authSlice';
 import foodReducer from './food/foodSlice';
+import blogReducer from './blog/blogSlice';
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -8,7 +9,8 @@ import { thunk } from 'redux-thunk';
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    food: foodReducer
+    food: foodReducer,
+    blog: blogReducer
 });
 
 const persistConfig = {

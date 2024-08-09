@@ -30,6 +30,9 @@ const AdminGetListFood = () => {
       accessToken,
       id: foodId
     }))
+    await dispatch(getFoods(accessToken))
+    setId('')
+    setShowAction(false)
   }
 
   useEffect(() => {
@@ -66,17 +69,17 @@ const AdminGetListFood = () => {
                     <td className={cx("get_list_food__td")}>{food.rate}</td>
                     <td className={cx("get_list_food__td")}>
                       <div className={cx("get_list_food__wrap")}>
-                        <img onClick={() => {setId(food._id); setShowAction(prev => !prev)}} className={cx("get_list_food__more")} src={images.three_dots_icon} alt="" />
+                        <img onClick={() => {setId(food._id); setShowAction(true)}} className={cx("get_list_food__more")} src={images.three_dots_icon} alt="" />
                         {id === food._id && showAction && <div className={cx("get_list_food__action")}>
                           <Link to="/admin-food/update" className={cx("get_list_food__item")}>
                             <img className={cx("get_list_food__item-img")} src={images.edit_icon} alt="edit icon" />
                             Update
                           </Link>
-                          <div onClick={() => {setShowModalDelete(true); handleDeleteFood(food._id)}} className={cx("get_list_food__item")}>
+                          <div onClick={() => {setShowModalDelete(true)}} className={cx("get_list_food__item")}>
                             <img className={cx("get_list_food__item-img")} src={images.delete_icon} alt="delete icon" />
                             Delete
                           </div>
-                          {showModalDelete && <ModalDelete setShowModalDelete={setShowModalDelete} />}
+                          {showModalDelete && <ModalDelete food={food} setShowModalDelete={setShowModalDelete} setShowAction={setShowAction} handleDeleteFood={handleDeleteFood}/>}
                         </div>}
                       </div>
                     </td>
