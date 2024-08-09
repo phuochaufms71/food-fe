@@ -60,8 +60,8 @@ const blogSlice = createSlice({
     name: 'blogs',
     initialState,
     reducers: {
-        removeSelectedMovie: (state) => {
-            state.food = {}
+        removeSelectedBlog: (state) => {
+            state.blog = {}
         }
     },
     extraReducers: (builder) => {
