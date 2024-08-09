@@ -57,7 +57,7 @@ const initialState = {
 }
 
 const blogSlice = createSlice({
-    name: 'blog',
+    name: 'blogs',
     initialState,
     reducers: {
         removeSelectedMovie: (state) => {
