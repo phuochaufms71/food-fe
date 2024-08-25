@@ -1,0 +1,8 @@
+@use "../../scss/abtracts";
+@import "../../Common/Common.module.scss";
+
+.account {
+    box-shadow: 0 10px 50px #e6e6e6;
+    border-radius: 4px;
+    padding: 20px;
+}

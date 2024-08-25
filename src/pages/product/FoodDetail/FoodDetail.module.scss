@@ -1,0 +1,274 @@
+@use "../../../components/scss/abtracts";
+@import "../../../components/Common/Common.module.scss";
+
+.food-detail {
+    margin: 150px 0 30px;
+
+    @include abtracts.breakpoint(sm) {
+        margin-top: 50px;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+
+        @include abtracts.breakpoint(sm) {
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    &__left {
+        display: flex;
+        gap: 10px;
+
+        @include abtracts.breakpoint(lg) {
+            flex-direction: column-reverse;
+        }
+
+        @include abtracts.breakpoint(xl) {
+            flex-direction: row;
+        }
+
+        @include abtracts.breakpoint(xl) {
+            flex-direction: column-reverse;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            flex-direction: row;
+            margin: 0 auto;
+        }
+    }
+
+    &__wrap-img {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+
+        @include abtracts.breakpoint(xl) {
+            flex-direction: row;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            flex-direction: column;
+        }
+    }
+    
+    &__img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        display: block;
+        border: 1px solid $fourary-color;
+
+        @include abtracts.breakpoint(xl) {
+            width: 80px;
+            height: 80px;
+        }
+
+        @include abtracts.breakpoint(lg) {
+            width: 70px;
+            height: 70px;
+        }
+
+        @include abtracts.breakpoint(md) {
+            width: 60px;
+            height: 60px;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            width: 55px;
+            height: 55px;
+        }
+    }
+    
+    &__thomnail {
+        border: 1px solid $fourary-color;
+        width: 430px;
+        height: 430px;
+        object-fit: cover;
+        display: block;
+
+        @include abtracts.breakpoint(xl) {
+            width: 350px;
+            height: 350px;
+        }  
+
+        @include abtracts.breakpoint(lg) {
+            width: 310px;
+            height:310px;
+        }        
+
+        @include abtracts.breakpoint(md) {
+            width: 270px;
+            height: 270px;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            width: 250px;
+            height: 250px;
+        }
+    }
+
+    &__right {
+        @include abtracts.breakpoint(sm) {
+            width: 100%;
+        }
+    }
+
+    &__name {
+        font-size: 4rem;
+        font-family: "Merienda";
+        font-weight: 800;
+        color: $secondary;
+
+        @include abtracts.breakpoint(xl) {
+            font-size: 3.6rem;
+        }
+
+        @include abtracts.breakpoint(lg) {
+            font-size: 3rem;
+        }
+
+        @include abtracts.breakpoint(md) {
+            font-size: 2.6rem;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            font-size: 2rem;
+            text-align: center;
+        }
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        gap: 50px;
+        
+        @include abtracts.breakpoint(sm) {
+            justify-content: center;
+        }
+    }
+
+    &__wrap-star {
+        display: flex;
+        gap: 5px;
+    }
+
+    &__star {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        display: block;
+
+        @include abtracts.breakpoint(lg) {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    &__rate {
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+
+    &__price {
+        font-family: "Merienda";
+        font-size: 2.6rem;
+        font-weight: 800;
+        margin: 20px 0;
+        color: $secondary;
+
+        @include abtracts.breakpoint(lg) {
+            font-size: 2.2rem;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            text-align: center;
+        }
+    }
+
+    &__desc {
+        font-size: 1.8rem;
+        color: #959595;
+        line-height: 1.6;
+
+        @include abtracts.breakpoint(lg) {
+            font-size: 1.6rem;
+        }
+
+        @include abtracts.breakpoint(md) {
+            font-size: 1.5rem;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            text-align: center;
+        }
+    }
+
+    &__addtocart {
+        display: block;
+        margin-top: 30px;
+        border: none;
+        outline: none;
+        width: 200px;
+        color: #fff;
+        background-color: $secondary;
+        padding: 15px;
+        cursor: pointer;
+
+        @include abtracts.breakpoint(xl) {
+            width: 150px;
+        }
+
+        @include abtracts.breakpoint(xl) {
+            width: 130px;
+            padding: 10px;
+            font-size: 1.6rem;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            width: 180px;
+            padding: 15px;
+            margin: 20px auto;
+        }
+
+    }
+
+    &__category {
+        margin-top: 20px;
+        font-size: 1.8rem;
+
+        @include abtracts.breakpoint(lg) {
+            font-size: 1.6rem;
+        }
+
+        @include abtracts.breakpoint(sm) {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        span {
+            font-weight: 500;
+            color: $thirtary;
+        }
+    }
+
+    &__tags {
+        margin-top: 20px;
+        font-size: 1.8rem;
+
+        @include abtracts.breakpoint(sm) {
+            text-align: center;
+        }
+
+        span {
+            font-weight: 500;
+            color: $thirtary;
+        }
+
+    }
+}

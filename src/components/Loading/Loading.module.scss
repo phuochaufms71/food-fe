@@ -1,0 +1,44 @@
+@import '../Common/Common.module.scss';
+
+.loading {
+  color: $secondary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  h3 {
+    margin-top: 20px;
+  }
+}
+
+.loading-inner {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.loading-inner::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 6.4px solid currentColor;
+  border-color: currentColor transparent currentColor transparent;
+  animation: loading 1.2s linear infinite;
+}
+  
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

@@ -1,0 +1,43 @@
+@use "../../components/scss/abtracts";
+@import "../../components/Common/Common.module.scss";
+
+.tippy {
+    // background: $linear-yellow;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px #333;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+
+    @include abtracts.breakpoint(sm) {
+        display: none;
+    }
+
+    &__item {
+        padding: 15px 20px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.3s;
+        color: #fff;
+
+        &:last-child {
+            border-top: 2px solid #fff;
+        }
+
+        &:hover {
+            background: rgba(236, 135, 57, 0.8);
+            color: #fff;
+        }
+    }
+
+    &__icon {
+        font-size: 1.8rem;
+    }
+
+    &__text {
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,43 @@
+@use "../../scss/abtracts";
+@import "../../Common/Common.module.scss";
+
+.sidebar_profile {
+    width: 300px;
+    padding: 10px;
+    box-shadow: 0 10px 50px #e6e6e6;
+    border-radius: 4px;
+
+    &__item {
+        padding: 15px;
+        display: flex;
+        gap: 15px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &--icon {
+            font-size: 1.8rem;
+            color: $primary-color;
+        }
+
+        &--title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #333;
+        }
+    }
+}
+
+.active {
+    background-color: $secondary;
+    transition: 0.3s;
+}
+
+.active {
+    .sidebar_profile__item--title {
+        color: #fff;
+    }
+
+    .sidebar_profile__item--icon {
+        color: #fff;
+    }
+}

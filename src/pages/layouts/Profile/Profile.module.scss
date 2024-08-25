@@ -1,0 +1,15 @@
+@use "../../../components/scss/abtracts";
+@import "../../../components/Common/Common.module.scss";
+
+.profile {
+    margin: 50px 0;
+    
+    &__inner {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__body {
+        width: calc(100% - 300px);
+    }
+}
