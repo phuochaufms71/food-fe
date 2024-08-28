@@ -12,7 +12,6 @@ const HeadlessTippy = ({children}) => {
   return (
     <Tippy
       interactive={true}
-      delay={500}
       placement="bottom-start"
       render={attrs => (
           <div className={cx("tippy")} tabIndex="-1" {...attrs}>
