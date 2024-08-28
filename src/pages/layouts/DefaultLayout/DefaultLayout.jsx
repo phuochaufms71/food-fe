@@ -7,10 +7,11 @@ import { useLocation } from "react-router-dom";
 const DefaultLayout = ({children}) => {
 
   const location = useLocation();
+
   return (
     <div>
       <Header />
-      {location.pathname !== "/" ? <Breadcrumb /> : <></>}
+      {location.pathname === '/'  ? <></> : (location.pathname === 'shopping/:id' ? <div style={{marginTop: 100}}>Breadcrumb</div> : <Breadcrumb />)  }
         {children}
       <Footer />
     </div>

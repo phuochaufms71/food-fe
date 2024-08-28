@@ -20,7 +20,8 @@ const ShoppingList = ({category}) => {
     const [favourite, setFavourite] = useState(false);
     const [idFood, setIdFood] = useState('');
     const itemsPerPage = 8;
-    const [currentItems, setCurrentItems] = useState(null);
+
+    const [currentItems, setCurrentItems] = useState();
     const handleAddToCart = (food) => {
         dispatch(addToCart(food))
     }
@@ -33,8 +34,8 @@ const ShoppingList = ({category}) => {
         <>
             <div className={cx("shopping__list")}>
                 {
-                    currentItems && currentItems?.map((food, index) => {
-                        if (food.category === category || category === "all") {
+                    currentItems?.map((food, index) => {
+                        if (category === "all" || food.category === category) {
                             return (
                                     <div key={index} className={cx("shopping__item")}>
                                         <div className={cx("shopping__item-wrap-img")}>
@@ -66,7 +67,7 @@ const ShoppingList = ({category}) => {
                                         </div>
                                     </div>
                             )
-                        }
+                        } 
                     })
                 }
             </div>

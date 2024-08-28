@@ -8,6 +8,7 @@ import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import ModalPayment from "../../../components/Modal/ModalPayment/ModalPayment";
 import { addPayment } from "../../../redux/payment/paymentSlice";
+import { clearCartFoods } from "../../../redux/cart/cartSlice";
 
 const Payment = () => {
   const cx = classNames.bind(styles);
@@ -53,6 +54,7 @@ const Payment = () => {
         minutes: "",
         seconds: ""
       })
+      dispatch(clearCartFoods())
     }
   }
 

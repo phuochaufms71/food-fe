@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { images } from "../../images";
+import { Link } from "react-router-dom";
 
 const Favourite = () => {
   const cx = classNames.bind(styles);
@@ -12,7 +13,7 @@ const Favourite = () => {
   return favourites.length === 0 ? <div className={cx("favourite__empty")}>No have food favourite, please add food favourite</div> : (
     <div className={cx("favourite__list")}>
       {favourites?.map((favourite, index) => (
-        <div key={index} className={cx("favourite__item")}>
+        <Link to={`/shopping/${favourite._id}`} key={index} className={cx("favourite__item")}>
           <div className={cx("favourite__item-wrap-img")}>
             <div>
               <img
@@ -63,7 +64,7 @@ const Favourite = () => {
           </div>
           <p className={cx("favourite__item-like")}>Like: {favourite.favouriteQuantity}</p>
           
-        </div>
+        </Link>
       ))}
     </div>
   );

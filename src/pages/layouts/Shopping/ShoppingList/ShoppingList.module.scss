@@ -146,7 +146,8 @@
 }
 
 .shopping__heart {
-    color: #ccc;
+    color: #fff;
+    background-color: #000;
     position: absolute;
     top: 5px;
     right: 5px;
@@ -156,6 +157,6 @@
 }
 
 .active {
-    color: #fff;
-    background-color: $secondary;
+    color: $secondary;
+    background-color: #fff;
 }
