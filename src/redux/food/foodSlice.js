@@ -101,7 +101,6 @@ const foodSlice = createSlice({
 
 export const { getFovouriteFood } = foodSlice.actions;
 export const getFoodsFromStore = state => state.food.foods;
-export const getFoodFromStore = state => state.food.food;
 
 export default foodSlice.reducer;
 

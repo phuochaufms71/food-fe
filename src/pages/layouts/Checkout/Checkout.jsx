@@ -11,6 +11,7 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import UpdateAddress from "../../../components/UpdateAddress/UpdateAddress";
 import ModalDeleteAddress from "../../../components/Modal/ModalDeleteAddress/ModalDeleteAddress";
+import { useEffect } from "react";
 
 const Checkout = () => {
   const cx = classNames.bind(styles);
@@ -19,7 +20,7 @@ const Checkout = () => {
   const cartFood = cart.cartFoods;
   const totalAmount = cart.cartTotalAmount;
   const totalCartQuantity = cart.cartTotalQuantity;
-  const { addresses }  = useSelector(state => state.address.addresses);
+  const { addresses } = useSelector(state => state.address);
   const { email } = useSelector(state => state.auth.user);
   const [showCreateAddress, setShowCreateAddress] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
@@ -39,6 +40,10 @@ const Checkout = () => {
     setShowCreateAddress(true)
   }
   const accessToken = localStorage.getItem(ACCESS_TOKEN);
+  const fetchAddress = async () => {
+    await dispatch(getAddresses(accessToken))
+
+  }
   
   const handleAddNewAddress = async (e) => {
     e.preventDefault();
@@ -71,6 +76,10 @@ const Checkout = () => {
     await dispatch(getAddresses(accessToken))
     setIdSelected('')
   }
+
+  useEffect(() => {
+    fetchAddress()
+  }, [localStorage.getItem(ACCESS_TOKEN)])
 
   return (
     <section className={cx('checkout')}>
@@ -158,7 +167,7 @@ const Checkout = () => {
                     <div key={index} className={cx("checkout__food-item")}>
                       <div className={cx("checkout__food-content")}>
                         <div className={cx("checkout__food-wrap-img")}>
-                          <img className={cx("checkout__food-img")} src={food?.image} alt="" />
+                          <img className={cx("checkout__food-img")} src={food?.image.secure_url} alt="" />
                         </div>
                         <div className={cx("checkout__food-body")}>
                           <p className={cx("checkout__food-body--name")}>{food?.name} x <span>{food?.cartQuantity}</span></p>

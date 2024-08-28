@@ -1,6 +1,7 @@
 import classNames from "classnames/bind"
 import styles from "./About.module.scss";
 import { images } from "../../../components/images";
+import { Link } from "react-router-dom";
 
 const About = () => {
     const cx = classNames.bind(styles);
@@ -9,9 +10,9 @@ const About = () => {
         <div className={cx("container")}>
             <div className={cx("about__inner")}>
                 <div className={cx("about__body")}>
-                    <button className={cx("about__body-order-mobie")}>
+                    <Link to="/cart" className={cx("about__body-order-mobie")}>
                         Order Now
-                    </button>
+                    </Link>
                     <div className={cx("about__body-left")}>
                         <div className={cx("about__body-wrap-img")}>
                             <img className={cx("about__body-img")} src={images.img_about_1} alt="" />
@@ -26,9 +27,9 @@ const About = () => {
                         <p className={cx("about__body-desc")}>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit laboriosam possimus eos natus maiores dolore! Neque consequatur porro odit dolores vero voluptatem omnis, cupiditate veniam itaque ab officiis quaerat qui.
                         </p>
-                        <button className={cx("about__body-order")}>
+                        <Link to="/cart" className={cx("about__body-order")}>
                             Order Now
-                        </button>
+                        </Link>
                     </div>
                     
                 </div>

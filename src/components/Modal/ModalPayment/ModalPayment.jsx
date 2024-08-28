@@ -18,7 +18,7 @@ const ModalPayment = ({setIsPayment}) => {
             <img className={cx("modal-payment__img")} src={images.check_icon} alt="" />
         </div>
         <h3 className={cx("modal-payment__title")}>Payment Success!</h3>
-        <p className={cx("modal-payment__total")}>${cart.cartTotalAmount}</p>
+        <p className={cx("modal-payment__total")}>${(cart.cartTotalAmount).toFixed(2)}</p>
         <p className={cx("modal-payment__spacer")}></p>
         <div className={cx("modal-payment__info--top")}>
             <div className={cx("modal-payment__item")}>
@@ -44,7 +44,7 @@ const ModalPayment = ({setIsPayment}) => {
         <div className={cx("modal-payment__info--bottom")}>
             <div className={cx("modal-payment__item")}>
                 <span>Amount</span>
-                <span>${cart.cartTotalAmount}</span>
+                <span>${(cart.cartTotalAmount).toFixed(2)}</span>
             </div>
             <div className={cx("modal-payment__item")}>
                 <span>Interpretation</span>

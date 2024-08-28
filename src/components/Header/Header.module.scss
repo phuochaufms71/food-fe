@@ -65,7 +65,7 @@
             }
 
             @include abtracts.breakpoint(md) {
-                gap: 10px;
+                gap: 5px;
             }
 
             @include abtracts.breakpoint(sm) {
@@ -198,10 +198,6 @@
     inset: 0;
     z-index: -1;
     
-    &:checked ~ .navbar__mobie_inner {
-        transform: translateX(-100%);
-    }
-    
     &_inner {
         top: 65px;
         background-color: #fff;
@@ -209,7 +205,6 @@
         position: absolute;
         padding: 10px;
         box-shadow: 0 15px 30px 30px rgba(0, 0, 0, 0.5);
-        transition: 0.5s;
         overflow: scroll;
         height: calc(100vh - 65px);
         inset: 65px 30% 0 0;
@@ -310,10 +305,12 @@
 
 .show {
     transform: translateX(0);
+    transition: 0.3s;
 }
 
 .hide {
     transform: translateX(-100%);
+    transition: 0.3s;
 }
 
 

@@ -64,7 +64,7 @@ const Cart = () => {
                 <tbody key={index} className={cx("cart__tbody")}>
                   <tr className={cx("cart__tr")}>
                     <td className={cx("cart__td")}>
-                      <img className={cx("cart__img")} src={cartFood.image} alt="" />
+                      <img className={cx("cart__img")} src={cartFood.image.secure_url} alt="" />
                     </td>
                     <td className={cx("cart__td-name")}>
                       <div className={cx("cart__name")}>

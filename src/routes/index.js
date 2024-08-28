@@ -4,6 +4,7 @@ import Blog from "../pages/layouts/Blog/Blog";
 import BlogItem from "../pages/layouts/Blog/BlogItem/BlogItem";
 import Contact from "../pages/layouts/Contact/Contact";
 
+
 import Login from "../pages/user/Login/Login";
 import Register from "../pages/user/Register/Register";
 import ResetPassword from "../pages/user/ResetPassword/ResetPassword";
@@ -24,6 +25,8 @@ import Checkout from "../pages/layouts/Checkout/Checkout";
 import BookTable from "../pages/layouts/BookTable/BookTable";
 import Profile from "../pages/layouts/Profile/Profile";
 import Payment from "../pages/layouts/Payment/Payment";
+import Faq from "../pages/layouts/Faq/Faq";
+import Notification from "../pages/layouts/Notification/Notification";
 
 export const routePublic = [
     { path: "/", component: Home },
@@ -35,10 +38,12 @@ export const routePublic = [
     { path: "/blog/:id", component: BlogItem },
     { path: "/about", component: About },
     { path: "/contact", component: Contact },
+    { path: "/faq", component: Faq },
     { path: "/cart", component: Cart },
     { path: "/cart/checkout", component: Checkout },
     { path: "/cart/checkout/payment", component: Payment },
     { path: "/profile", component: Profile },
+    { path: "/notification", component: Notification },
 ];
 
 export const routeAuthorization = [

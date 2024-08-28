@@ -6,14 +6,14 @@ import { images } from "../images/index.js";
 import { useSelector } from "react-redux";
 import HeadlessTippy from "../HeadlessTippy/HeadlessTippy.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping, faBell, faBlog, faGear, faHome, faIdCard, faList, faRightToBracket, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faBell, faBlog, faCircleQuestion, faHome, faIdCard, faList, faRightToBracket, faSearch, faUser, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
     const [itemLink, setItemLink] = useState("/");
     const cx = classNames.bind(styles);
     const cartFoods = useSelector(state => state.cart.cartFoods);
-    const auth = useSelector(state => state.auth);
-    const [showMenu, setShowMenu] = useState("hide");
+    const {user} = useSelector(state => state.auth);
+    const [showMenu, setShowMenu] = useState(false);
     const [mobieActive, setMobieActive] = useState("home");
 
     const handleShowMenu = () => {
@@ -24,7 +24,7 @@ const Header = () => {
         <header className={cx("header")}>
             <div className={cx("container")}>
                 <div className={cx("header__inner")}>
-                    <div onClick={() => setShowMenu(showMenu === "hide" ? "show" : "hide")} className={cx("header__menu")}>
+                    <div onClick={() => setShowMenu(prev => !prev)} className={cx("header__menu")}>
                         <i className="fa-solid fa-bars"></i>
                     </div>
                     <Link to="/">
@@ -47,13 +47,16 @@ const Header = () => {
                             <li onClick={() => setItemLink("/contact")} className={cx("header__navbar-item")}>
                                 <Link className={`${styles.header__navbar_link} ${itemLink === "/contact" ? styles.active : ''}`} to="/contact">Contact</Link>
                             </li>
+                            <li onClick={() => setItemLink("/faq")} className={cx("header__navbar-item")}>
+                                <Link className={`${styles.header__navbar_link} ${itemLink === "/faq" ? styles.active : ''}`} to="/faq">FAQ</Link>
+                            </li>
                         </ul>
                     </nav>
 
                     {/* Mobile */}
                     {
-                        showMenu === "show" && <nav onClick={handleShowMenu} className={cx("navbar__mobie")}>
-                            <div className={`${showMenu === "show" ? styles.show : ""} ${styles.navbar__mobie_inner}`}>
+                        <nav onClick={handleShowMenu} className={`${showMenu ? styles.show : styles.hide} ${styles.navbar__mobie}`}>
+                            <div className={cx("navbar__mobie_inner")}>
                                 <div className={cx("navbar__mobie-search")}>
                                     <FontAwesomeIcon icon={faSearch} className={cx("navbar__mobie-search--icon")}/>
                                     <input className={cx("navbar__mobie-search--input")} type="text" placeholder="Search..."/>
@@ -64,6 +67,10 @@ const Header = () => {
                                     <li onClick={() => {setMobieActive("home")}} className={`${mobieActive === "home" && styles.mobieActive} ${styles.navbar__mobie_item}`}>
                                         <FontAwesomeIcon className={cx("navbar__mobie_item--icon")} icon={faHome} />
                                         <Link to="/" className={cx("navbar__mobie_item--link")}>Home</Link>
+                                    </li>
+                                    <li onClick={() => {setMobieActive("about")}} className={`${mobieActive === "about" && styles.mobieActive} ${styles.navbar__mobie_item}`}>
+                                        <FontAwesomeIcon className={cx("navbar__mobie_item--icon")} icon={faUserGroup} />
+                                        <Link to="/about" className={cx("navbar__mobie_item--link")}>About</Link>
                                     </li>
                                     <li onClick={() => {setMobieActive("menu"); handleShowMenu}} className={`${mobieActive === "menu" && styles.mobieActive} ${styles.navbar__mobie_item}`}>
                                         <FontAwesomeIcon className={cx("navbar__mobie_item--icon")} icon={faList} />
@@ -81,6 +88,10 @@ const Header = () => {
                                         <FontAwesomeIcon className={cx("navbar__mobie_item--icon")} icon={faIdCard} />
                                         <Link to="/contact" className={cx("navbar__mobie_item--link")}>Contact</Link>
                                     </li>
+                                    <li onClick={() => {setMobieActive("faq"); handleShowMenu}} className={`${mobieActive === "faq" && styles.mobieActive} ${styles.navbar__mobie_item}`}>
+                                        <FontAwesomeIcon className={cx("navbar__mobie_item--icon")} icon={faCircleQuestion} />
+                                        <Link to="/faq" className={cx("navbar__mobie_item--link")}>FAQ</Link>
+                                    </li>
                                 </ul>
         
                                 <h3 className={cx("navbar__mobie-title")}>Establish</h3>
@@ -89,13 +100,9 @@ const Header = () => {
                                         <FontAwesomeIcon className={cx("navbar__mobie_item--icon")} icon={faUser} />
                                         <Link to="/profile" className={cx("navbar__mobie_item--link")}>Profile</Link>
                                     </li>
-                                    <li onClick={() => {handleShowMenu; setMobieActive("settings")}} className={`${mobieActive === "settings" ? styles.mobieActive : ""} ${styles.navbar__mobie_item}`}>
-                                        <FontAwesomeIcon className={cx("navbar__mobie_item--icon")} icon={faGear} />
-                                        <Link to="/settings" className={cx("navbar__mobie_item--link")}>Settings</Link>
-                                    </li>
                                     <li onClick={() => {handleShowMenu; setMobieActive("notifications")}} className={`${mobieActive === "notifications" ? styles.mobieActive : ""} ${styles.navbar__mobie_item}`}>
                                         <FontAwesomeIcon className={cx("navbar__mobie_item--icon")} icon={faBell} />
-                                        <Link to="/notifications" className={cx("navbar__mobie_item--link")}>Notifications</Link>
+                                        <Link to="/notification" className={cx("navbar__mobie_item--link")}>Notifications</Link>
                                     </li>
                                 </ul>
         
@@ -117,7 +124,7 @@ const Header = () => {
                         </Link>
                         <HeadlessTippy>
                             <div className={cx("header__wrap-avatar")}>
-                                <img className={cx("header__avatar")} src={auth.user.avatar} alt="" />
+                                <img className={cx("header__avatar")} src={user.avatar} alt="" />
                             </div>
                         </HeadlessTippy>
                     </div>

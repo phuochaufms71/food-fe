@@ -36,7 +36,6 @@ const ShoppingList = ({category}) => {
                     currentItems && currentItems?.map((food, index) => {
                         if (food.category === category || category === "all") {
                             return (
-                                
                                     <div key={index} className={cx("shopping__item")}>
                                         <div className={cx("shopping__item-wrap-img")}>
                                             <Link to={`/shopping/${food._id}`}>

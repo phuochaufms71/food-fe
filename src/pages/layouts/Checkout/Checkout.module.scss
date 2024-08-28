@@ -3,6 +3,10 @@
 
 .checkout {
     margin: 50px auto;
+
+    @include abtracts.breakpoint(sm) {
+        margin-top: 30px;
+    }
     
     &__inner {
         display: flex;

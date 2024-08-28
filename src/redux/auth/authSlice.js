@@ -3,6 +3,7 @@ import { notification } from "antd";
 import { ACCESS_TOKEN, NOTIFICATION_TYPES } from "../../constants";
 import createApi from "../../api";
 
+
 export const register = createAsyncThunk('auth/register', async (dataRegister) => {
     try {
         const { data } = await createApi().post('/auth/register', { ...dataRegister });
@@ -66,6 +67,20 @@ export const logout = createAsyncThunk('auth/logout', async (accessToken) => {
         localStorage.removeItem("access_token")
         notification[NOTIFICATION_TYPES.success]({
             message: "Logout account succesfully"
+        })
+    } catch (error) {
+        notification[NOTIFICATION_TYPES.error]({
+            message: error.response.data.message
+        })
+    }
+})
+
+export const editUser = createAsyncThunk('auth/editUser', async ({accessToken, editData}) => {
+    try {
+        await createApi(accessToken).put('/auth/edit', {...editData})
+        localStorage.setItem("access_token", JSON.stringify({...editData}))
+        notification[NOTIFICATION_TYPES.success]({
+            message: "Update account successfully"
         })
     } catch (error) {
         notification[NOTIFICATION_TYPES.error]({

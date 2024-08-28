@@ -1,20 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import classNames from "classnames/bind";
 import styles from "./FoodDetail.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { getFoodDetail, getFoodFromStore } from "../../../redux/food/foodSlice";
-import { ACCESS_TOKEN } from "../../../constants";
-import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { getFoodDetail } from "../../../redux/food/foodSlice";
+import { ACCESS_TOKEN } from "../../../constants";
 import { images } from "../../../components/images";
 import { addToCart } from "../../../redux/cart/cartSlice";
-import { toast, ToastContainer } from "react-toastify";
+import Loading from "../../../components/Loading/Loading";
 
 const FoodDetail = () => {
     const cx = classNames.bind(styles);
-    const { id } = useParams();
-    const food = useSelector(getFoodFromStore);
     const dispatch = useDispatch();
+    const { id } = useParams();
+    const food = useSelector(state => state.food.food);
 
     const handleAddToCart = (food) => {
       dispatch(addToCart(food))
@@ -33,7 +34,7 @@ const FoodDetail = () => {
       fetchFoodDetail()
     }, [localStorage.getItem(ACCESS_TOKEN)])
 
-    return (
+    return Object.keys(food).length === 0 ? <Loading /> : ( 
       <section className={cx('food-detail')}>
         <div className={cx("container")}>
           <div className={cx("food-detail__inner")}>

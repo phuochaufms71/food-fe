@@ -4,10 +4,10 @@
 .about {
 
     &__inner {
-        margin: 150px auto 30px;
+        margin: 50px auto;
 
-        @include abtracts.breakpoint(md) {
-            margin-top: 100px;
+        @include abtracts.breakpoint(sm) {
+            margin-top: 30px;
         }
     }
 
@@ -121,9 +121,11 @@
         }
 
         &-order {
+            color: #fff;
+            display: block;
             border: none;
             outline: none;
-            min-width: 150px;
+            width: 150px;
             border-radius: 99px;
             background-color: $fourary-color;
             text-align: center;
@@ -131,6 +133,10 @@
             font-weight: 500;
             font-size: 1.8rem;
             cursor: pointer;
+
+            @include abtracts.breakpoint(md) {
+                margin: 0 auto;
+            }
 
             @include abtracts.breakpoint(sm) {
                 font-size: 1.6rem;
@@ -151,6 +157,7 @@
             font-weight: 500;
             font-size: 1.8rem;
             cursor: pointer;
+            color: #fff;
 
             @include abtracts.breakpoint(sm) {
                 font-size: 1.6rem;
