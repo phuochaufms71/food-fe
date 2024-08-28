@@ -56,21 +56,18 @@ const Contact = () => {
               <h3 className={cx("contact__group-field")}>Email</h3>
               <p className={cx("contact__group-desc")}>Our friendly team is here to help</p>
               <a href="mailto: phuochaubmw@gmail.com" className={cx("contact__group-content")}>phuochaubmw@gmail.com</a>
-              <a href="mailto: lamlinh10032007@gmail.com" className={cx("contact__group-content")}>(lamlinh10032007@gmail.com)</a>
             </div>
             <div className={cx("contact__group")} data-aos="fade-up" data-aos-duration="1000">
               <i className="fa-solid fa-location-dot"></i>
               <h3 className={cx("contact__group-field")}>Office</h3>
               <p className={cx("contact__group-desc")}>Come say hello at our office</p>
               <p className={cx("contact__group-content")}>Long Thoi, Cho Lach, Ben Tre</p>
-              <p className={cx("contact__group-content")}>(Vinh Binh, Cho Lach, Ben Tre)</p>
             </div>
             <div className={cx("contact__group")} data-aos="fade-up" data-aos-duration="1000">
               <i className="fa-solid fa-phone"></i>
               <h3 className={cx("contact__group-field")}>Phone</h3>
               <p className={cx("contact__group-desc")}>You can call us when you need to help</p>
               <a href="tel: +84-364-500-846" className={cx("contact__group-content")}>+84-364-500-846</a>
-              <a href="tel: +84-365-422-963" className={cx("contact__group-content")}>(+84-365-422-963)</a>
             </div>
           </div>
           <div className={cx("contact__spacer")} data-aos="fade-up" data-aos-duration="1000"></div>
